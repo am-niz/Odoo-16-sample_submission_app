@@ -20,16 +20,14 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', "mail", "product"],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
-    ],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
+        'security/ir.model.access.csv',
+        'data/ir_sequence_data.xml',
+        'views/sample_submission_views.xml',
+        'views/sameple_submission_menu.xml',
+        'wizard/material_wizard_views.xml',
     ],
 }

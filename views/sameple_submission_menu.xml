@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <menuitem
+                id="sample_submission_menu_root"
+                name="Sample Submission"/>
+
+        <!-- Sample Submission (MAIN USER MENU) -->
+        <menuitem
+                id="menu_sample_submission"
+                name="Sample Submission"
+                parent="sample_submission_app.sample_submission_menu_root"
+                action="sample_submission_app.action_view_sample_submission"
+                sequence="1"/>
+    </data>
+</odoo>

@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_sample_submission_app_sample_submission_app,sample_submission_app.sample_submission_app,model_sample_submission_app_sample_submission_app,base.group_user,1,1,1,1
+access_sample_submission_id,access_sample_submission,model_sample_submission,base.group_user,1,1,1,1
+access_sample_submission_material_id,access_sample_submission_material,model_sample_submission_material,base.group_user,1,1,1,1
+access_material_wizard_id,access_material_wizard,model_material_wizard,base.group_user,1,1,1,1

@@ -1,0 +1,73 @@
+<odoo>
+    <data>
+        <record id="action_material_record_entry" model="ir.actions.server">
+            <field name="name">Create Material Records</field>
+            <field name="model_id" ref="sample_submission_app.model_sample_submission"/>
+            <field name="binding_model_id" ref="sample_submission_app.model_sample_submission"/>
+            <field name="state">code</field>
+            <field name="code">action = records.action_create_material()</field>
+        </record>
+        <record id="view_sample_submission_tree" model="ir.ui.view">
+            <field name="name">sample.submission.tree</field>
+            <field name="model">sample.submission</field>
+            <field name="arch" type="xml">
+                <tree string="Sample Submission">
+                    <field name="sequence"/>
+                    <field name="name"/>
+                    <field name="customer_id"/>
+                    <field name="date_submission"/>
+                    <field name="price"/>
+                    <field name="stage"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_sample_submission_form" model="ir.ui.view">
+            <field name="name">sample.submission.form</field>
+            <field name="model">sample.submission</field>
+            <field name="arch" type="xml">
+                <form string="Sample Submission">
+                    <header>
+                        <field name="stage" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="sequence" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group name="sample_submission_header">
+                            <group name="partner_sample_details">
+                                <field name="name" class="oe_inline"/>
+                                <field name="customer_id" widget="res_partner_many2one"/>
+                            </group>
+                            <group name="submission_details">
+                                <field name="date_submission"/>
+                                <field name="description"/>
+                                <field name="price"/>
+                                <field name="discount"/>
+                                <field name="vat"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Materials" name="sample_materials">
+                                <field name="material_ids" widget="tree">
+                                    <tree create="false" edit="false">
+                                        <field name="sl_no"/>
+                                        <field name="product_id"/>
+                                        <field name="quantity"/>
+                                        <field name="remarks"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_view_sample_submission" model="ir.actions.act_window">
+            <field name="name">Sample Submission</field>
+            <field name="res_model">sample.submission</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
