@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
-
-    <record id="seq_sale_order" model="ir.sequence">
-        <field name="name">Sample Submission</field>
-        <field name="code">sample.submission</field>
-        <field name="prefix">SS</field>
-        <field name="padding">5</field>
-        <field name="company_id" eval="False"/>
-    </record>
-
+    <data>
+        <record id="seq_sample_submission" model="ir.sequence">
+            <field name="name">Sample Submission</field>
+            <field name="code">sample.submission</field>
+            <field name="prefix">SS</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_invoiced_sample_submission" model="ir.sequence">
+            <field name="name">Invoiced Sample Submission</field>
+            <field name="code">invoiced.sample.submission</field>
+            <field name="prefix">InvSS</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
 </odoo>

@@ -14,7 +14,7 @@ class SampleSubmission(models.Model):
     description = fields.Text(string="Description")
     price = fields.Float(string="Price")
     discount = fields.Float(string="Discount")
-    vat = fields.Float(string="VAT")
+    vat_ids = fields.Many2many("account.tax", string="VAT")
 
     material_ids = fields.One2many("sample.submission.material", "sample_submission_id", string="Materials")
 
@@ -25,6 +25,19 @@ class SampleSubmission(models.Model):
         ("completed", "Completed"),
         ("invoiced", "Invoiced")
     ], string="Stage", default="pending", tracking=3)
+    amount = fields.Float(string="Amount")
+    invoice_status = fields.Selection([
+        ("draft", "Draft"),
+        ("posted", "Posted"),
+        ("cancel", "Cancelled")
+    ])
+    collected_payment = fields.Float(string="Collected Payment")
+    balance = fields.Float(string="Balance")
+    total_product_qty = fields.Float(string="Total Product Qty")
+    sum_of_cost = fields.Float(string="Sum of Cost")
+    profit = fields.Float(string="Profit")
+
+    inv_count = fields.Integer(string="Invoice Count", default=0)
 
     # make status changes to doing when feeding the values
     @api.onchange("name")
@@ -37,7 +50,6 @@ class SampleSubmission(models.Model):
         if vals.get('sequence', _('New')) == _('New'):
             vals['sequence'] = self.env['ir.sequence'].next_by_code('sample.submission') or _('New')
         res = super(SampleSubmission, self).create(vals)
-        res.stage = "completed"
         return res
 
     def action_create_material(self):
@@ -58,4 +70,14 @@ class SampleSubmission(models.Model):
             "view_mode": "form",
             "context": {"default_sample_submission_id": self.id},
             "target": "new",
+        }
+
+    def action_view_invoice(self):
+        return {
+            "name": "Invoices",
+            "type": "ir.actions.act_window",
+            "res_model": "account.move",
+            "view_mode": "tree,form",
+            "domain": [("sample_submission_id", "=", self.id)],
+            "target": "current",
         }

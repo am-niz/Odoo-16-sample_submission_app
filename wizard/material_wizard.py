@@ -18,3 +18,5 @@ class MaterialWizard(models.TransientModel):
                 "quantity": self.quantity,
                 "remarks": self.remarks,
             })
+            sample_submission = self.env["sample.submission"].browse(sample_submission_id)
+            sample_submission.stage = "completed"

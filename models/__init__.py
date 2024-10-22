@@ -2,3 +2,5 @@
 
 from . import sample_submission
 from . import sample_submission_material
+from . import account_move
+

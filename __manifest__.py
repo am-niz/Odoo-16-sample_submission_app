@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', "mail", "product"],
+    'depends': ['base', "mail", "product", 'account'],
 
     # always loaded
     'data': [
@@ -30,5 +30,6 @@
         'wizard/inv_confirm_view.xml',
         'views/sample_submission_views.xml',
         'views/sameple_submission_menu.xml',
+        'views/account_move_view.xml',
     ],
 }
