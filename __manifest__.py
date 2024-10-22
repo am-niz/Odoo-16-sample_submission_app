@@ -26,8 +26,9 @@
     'data': [
         'security/ir.model.access.csv',
         'data/ir_sequence_data.xml',
+        'wizard/material_wizard_views.xml',
+        'wizard/inv_confirm_view.xml',
         'views/sample_submission_views.xml',
         'views/sameple_submission_menu.xml',
-        'wizard/material_wizard_views.xml',
     ],
 }

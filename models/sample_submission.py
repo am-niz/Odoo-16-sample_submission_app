@@ -49,3 +49,13 @@ class SampleSubmission(models.Model):
             "context": {"default_sample_submission_id": self.id},
             "target": "new",
         }
+
+    def action_create_invoice(self):
+        return {
+            "name": "Create Invoice",
+            "type": "ir.actions.act_window",
+            "res_model": "inv.confirm.wizard",
+            "view_mode": "form",
+            "context": {"default_sample_submission_id": self.id},
+            "target": "new",
+        }
