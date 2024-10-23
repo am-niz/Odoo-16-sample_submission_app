@@ -24,12 +24,12 @@
     'version': '1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', "mail", "product", 'account'],
+    'depends': ['base', "mail", "product", 'account', 'report_xlsx'],
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
         'security/security.xml',
+        'security/ir.model.access.csv',
         'data/ir_sequence_data.xml',
         'wizard/filter_invoice_wizard_views.xml',
         'wizard/material_wizard_views.xml',
