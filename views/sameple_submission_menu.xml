@@ -2,7 +2,9 @@
     <data>
         <menuitem
                 id="sample_submission_menu_root"
-                name="Sample Submission"/>
+                name="Sample Submission"
+                groups="sample_submission_app.group_sample_submission_admin,sample_submission_app.group_sample_submission_all_documents,sample_submission_app.group_sample_submission_own_documents"
+        />
 
         <!-- Sample Submission (MAIN USER MENU) -->
         <menuitem

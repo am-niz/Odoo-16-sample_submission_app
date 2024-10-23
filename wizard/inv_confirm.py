@@ -25,7 +25,11 @@ class InvoiceWizard(models.TransientModel):
                 "quantity": 1.0,
             })]
         })
-        material_ids = self.env["sample.submission.material"].search([("sample_submission_id", "=", self.sample_submission_id.id)])
+
+        material_ids = self.env["sample.submission.material"].search([
+            ("sample_submission_id", "=", self.sample_submission_id.id)
+        ])
+
         # Editing the related sample submission with the new datas
         self.sample_submission_id.write({
             "stage": "invoiced",

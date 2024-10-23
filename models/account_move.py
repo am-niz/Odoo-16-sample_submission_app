@@ -5,7 +5,7 @@ class AccountMove(models.Model):
     _inherit = "account.move"
 
     sample_submission_id = fields.Many2one("sample.submission", string="Sample Submission", invisible=True)
-    is_sample_submission = fields.Boolean()
+    is_sample_submission = fields.Boolean()  # help to view the sample_submission from the corresponding invoice
 
     def action_sample_submission(self):
         return {

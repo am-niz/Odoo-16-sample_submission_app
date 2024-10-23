@@ -11,11 +11,12 @@ class SampleSubmission(models.Model):
     name = fields.Char(string="Name")
     customer_id = fields.Many2one("res.partner", string="Customer")
     date_submission = fields.Date(string="Date of Submission")
-    description = fields.Text(string="Description")
+    description = fields.Char(string="Description")
     price = fields.Float(string="Price")
     discount = fields.Float(string="Discount")
     vat_ids = fields.Many2many("account.tax", string="VAT")
 
+    # One2many relation with sample.submission.material model
     material_ids = fields.One2many("sample.submission.material", "sample_submission_id", string="Materials")
 
     # Stages (Pending, Doing, Completed)
@@ -39,20 +40,18 @@ class SampleSubmission(models.Model):
 
     inv_count = fields.Integer(string="Invoice Count", default=0)
 
-    # make status changes to doing when feeding the values
-    @api.onchange("name")
+    @api.onchange("name")  # make status changes to 'doing' when start to feed the values to the sample submission form
     def _onchange_name(self):
         self.stage = "doing"
 
-    # Automatically generate sequence number
-    @api.model
+    @api.model  # Automatically generate sequence number
     def create(self, vals):
         if vals.get('sequence', _('New')) == _('New'):
             vals['sequence'] = self.env['ir.sequence'].next_by_code('sample.submission') or _('New')
         res = super(SampleSubmission, self).create(vals)
         return res
 
-    def action_create_material(self):
+    def action_create_material(self):  # Method to crete materials for the corresponding sample submission
         return {
             "name": "Create Material Records",
             "type": "ir.actions.act_window",
@@ -62,7 +61,7 @@ class SampleSubmission(models.Model):
             "target": "new",
         }
 
-    def action_create_invoice(self):
+    def action_create_invoice(self):  # Method to create invoice from corresponding sample submission
         return {
             "name": "Create Invoice",
             "type": "ir.actions.act_window",
@@ -72,7 +71,7 @@ class SampleSubmission(models.Model):
             "target": "new",
         }
 
-    def action_view_invoice(self):
+    def action_view_invoice(self):  # Method to view the created invoice from the corresponding sample submission
         return {
             "name": "Invoices",
             "type": "ir.actions.act_window",
@@ -82,7 +81,8 @@ class SampleSubmission(models.Model):
             "target": "current",
         }
 
-    def action_invoice_filter(self):
+    def action_invoice_filter(self):  # Method to view the filtering wizard which help to print the filtered reports
+        # of sample submission
         return {
             "name": "Filter Invoice",
             "type": "ir.actions.act_window",

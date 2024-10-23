@@ -11,11 +11,11 @@ class SampleSubmissionMaterial(models.Model):
     quantity = fields.Float(string="Quantity")
     remarks = fields.Char(string="Remarks")
 
-    @api.depends("sample_submission_id.material_ids")
+    @api.depends("sample_submission_id.material_ids")  # Method to automatically assign the serial number
     def _compute_sl_no(self):
         for record in self:
             # Get all the materials linked to the current sample submission
             materials = record.sample_submission_id.material_ids
-            # Assign a sequential number based on the position in the materials list
+            # Assign a serial number based on the position in the materials list
             for index, material in enumerate(materials, start=1):
                 material.sl_no = index

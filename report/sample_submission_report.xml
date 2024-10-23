@@ -1,5 +1,7 @@
 <odoo>
     <data>
+<!--        record help to generate corresponding pdf report file from teh sample submission-->
+
         <record id="sample_submission_report" model="ir.actions.report">
             <field name="name">Invoice Pdf</field>
             <field name="model">sample.submission</field>
@@ -9,6 +11,9 @@
             <field name="binding_model_id" ref="model_sample_submission"/>
             <field name="binding_type">report</field>
         </record>
+
+<!--        record help to create the xlsx report file of the corresponding sample submission -->
+
         <record id="sample_submission_report_xlsx" model="ir.actions.report">
             <field name="name">Invoice Excel</field>
             <field name="model">sample.submission</field>

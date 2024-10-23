@@ -3,21 +3,25 @@
     'name': "sample_submission_app",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Streamline sample submission management, connecting customers to submission forms, tracking materials, 
+        generating invoices, and creating customizable PDF and Excel reports.""",
 
     'description': """
-        Long description of module's purpose
+        The Sample Submission app enables efficient management of sample submissions, 
+    linking customers to submission forms and tracking related materials as products. 
+
+    This module is designed to simplify and organize sample submission processes, 
+    enhancing productivity and accuracy.
     """,
 
-    'author': "My Company",
-    'website': "https://www.yourcompany.com",
+    'author': "NIZAMUDHEEN MJ",
+    'website': "https://github.com/am-niz",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/16.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Uncategorized',
-    'version': '0.1',
+    'version': '1.0',
 
     # any module necessary for this one to work correctly
     'depends': ['base', "mail", "product", 'account'],
@@ -25,6 +29,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'security/security.xml',
         'data/ir_sequence_data.xml',
         'wizard/filter_invoice_wizard_views.xml',
         'wizard/material_wizard_views.xml',

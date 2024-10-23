@@ -10,7 +10,7 @@ class InvoiceFilter(models.TransientModel):
     date_from = fields.Date(string="Date From")
     date_to = fields.Date(string="Date To")
 
-    def action_apply_filter_pdf(self):
+    def action_apply_filter_pdf(self):  # Filtering for printing the pdf reports
         # Initialize a domain for the date filter
         domain = []
 
@@ -29,7 +29,7 @@ class InvoiceFilter(models.TransientModel):
         else:
             raise ValidationError("No Reports are found!.........")
 
-    def action_apply_filter_excel(self):
+    def action_apply_filter_excel(self):  # Filtering for printing excel reports
         # Initialize a domain for the date filter
         domain = []
 

@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <record model="ir.module.category" id="sample_submission_category">
+            <field name="description">Helps you manage sample submission.</field>
+            <field name="name">SAMPLE SUBMISSION</field>
+        </record>
+        <!-- Administrator Group -->
+        <record id="group_sample_submission_admin" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="category_id" ref="sample_submission_app.sample_submission_category"/>
+        </record>
+
+        <!-- All Documents Group -->
+        <record id="group_sample_submission_all_documents" model="res.groups">
+            <field name="name">All Documents</field>
+            <field name="category_id" ref="sample_submission_app.sample_submission_category"/>
+        </record>
+
+        <!-- Own Documents Group -->
+        <record id="group_sample_submission_own_documents" model="res.groups">
+            <field name="name">Own Documents</field>
+            <field name="category_id" ref="sample_submission_app.sample_submission_category"/>
+        </record>
+
+<!--        Users, only view their own records-->
+        <record id="rule_sample_submission_own_documents" model="ir.rule">
+            <field name="name">Own Documents</field>
+            <field name="model_id" ref="model_sample_submission"/>
+            <field name="domain_force">[('create_uid', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('sample_submission_app.group_sample_submission_own_documents'))]"/>
+        </record>
+    </data>
+</odoo>

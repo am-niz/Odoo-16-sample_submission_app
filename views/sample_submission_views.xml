@@ -1,5 +1,8 @@
 <odoo>
     <data>
+
+<!--        To create 'Create Material Records' button on 'Action'-->
+
         <record id="action_material_record_entry" model="ir.actions.server">
             <field name="name">Create Material Records</field>
             <field name="model_id" ref="sample_submission_app.model_sample_submission"/>
@@ -7,6 +10,9 @@
             <field name="state">code</field>
             <field name="code">action = records.action_create_material()</field>
         </record>
+
+<!--        To create "Create Invoice" Records button on Action-->
+
         <record id="action_invoice_create" model="ir.actions.server">
             <field name="name">Create Invoice</field>
             <field name="model_id" ref="sample_submission_app.model_sample_submission"/>
@@ -14,6 +20,9 @@
             <field name="state">code</field>
             <field name="code">action = records.action_create_invoice()</field>
         </record>
+
+<!--        To create "Filter Invoice" button on Action-->
+
         <record id="action_invoice_filter" model="ir.actions.server">
             <field name="name">Filter Invoice</field>
             <field name="model_id" ref="sample_submission_app.model_sample_submission"/>
@@ -21,6 +30,9 @@
             <field name="state">code</field>
             <field name="code">action = records.action_invoice_filter()</field>
         </record>
+
+<!--        Tree view of sample submission model-->
+
         <record id="view_sample_submission_tree" model="ir.ui.view">
             <field name="name">sample.submission.tree</field>
             <field name="model">sample.submission</field>
@@ -39,6 +51,9 @@
                 </tree>
             </field>
         </record>
+
+<!--        form view of sample submission model-->
+
         <record id="view_sample_submission_form" model="ir.ui.view">
             <field name="name">sample.submission.form</field>
             <field name="model">sample.submission</field>
@@ -61,19 +76,22 @@
                         <group name="sample_submission_header">
                             <group name="partner_sample_details">
                                 <field name="name" class="oe_inline"/>
-                                <field name="customer_id" widget="res_partner_many2one"/>
+                                <field name="customer_id" widget="res_partner_many2one" context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}" options="{&quot;always_reload&quot;: True}"/>
                             </group>
                             <group name="submission_details">
                                 <field name="date_submission"/>
                                 <field name="description"/>
                                 <field name="price"/>
                                 <field name="discount"/>
-                                <field name="vat_ids"/>
+                                <field name="vat_ids" widget="many2many_tags"/>
                             </group>
                         </group>
                         <notebook>
                             <page string="Materials" name="sample_materials">
-                                <field name="material_ids" widget="tree">
+                                <field name="material_ids" widget="section_and_note_one2many">
+
+<!--                                    Can't create or edit the records form the tree view-->
+
                                     <tree create="false" edit="false">
                                         <field name="sl_no"/>
                                         <field name="product_id"/>
@@ -87,6 +105,9 @@
                 </form>
             </field>
         </record>
+
+<!--        Action to view the sample submission model-->
+
         <record id="action_view_sample_submission" model="ir.actions.act_window">
             <field name="name">Sample Submission</field>
             <field name="res_model">sample.submission</field>

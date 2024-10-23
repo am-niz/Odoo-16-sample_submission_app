@@ -8,6 +8,9 @@
                 <xpath expr="//sheet" position="inside">
                     <field name="is_sample_submission" invisible="1"/>
                 </xpath>
+
+<!--                Adding a button for navigating to the corresponding sample submission form view -->
+
                 <xpath expr="//div[@name='button_box']/button[@name='open_created_caba_entries']" position="after">
                     <button name="action_sample_submission" class="oe_stat_button" icon="fa-usd" type="object" attrs="{'invisible': [('is_sample_submission', '!=', True)]}" string="Sample Submission"/>
                 </xpath>
