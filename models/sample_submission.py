@@ -81,3 +81,12 @@ class SampleSubmission(models.Model):
             "domain": [("sample_submission_id", "=", self.id)],
             "target": "current",
         }
+
+    def action_invoice_filter(self):
+        return {
+            "name": "Filter Invoice",
+            "type": "ir.actions.act_window",
+            "res_model": "filter.invoice",
+            "view_mode": "form",
+            "target": "new",
+        }

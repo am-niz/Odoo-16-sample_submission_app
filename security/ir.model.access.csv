@@ -3,3 +3,4 @@ access_sample_submission_id,access_sample_submission,model_sample_submission,bas
 access_sample_submission_material_id,access_sample_submission_material,model_sample_submission_material,base.group_user,1,1,1,1
 access_material_wizard_id,access_material_wizard,model_material_wizard,base.group_user,1,1,1,1
 access_inv_confirm_wizard_id,access_inv_confirm_wizard,model_inv_confirm_wizard,base.group_user,1,1,1,1
+access_filter_invoice_id,access_filter_invoice,model_filter_invoice,base.group_user,1,1,1,1
