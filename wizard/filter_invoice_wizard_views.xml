@@ -22,5 +22,11 @@
                 </form>
             </field>
         </record>
+        <record id="action_view_filter_inv_form" model="ir.actions.act_window">
+            <field name="name">Filter Invoices</field>
+            <field name="res_model">filter.invoice</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
     </data>
 </odoo>

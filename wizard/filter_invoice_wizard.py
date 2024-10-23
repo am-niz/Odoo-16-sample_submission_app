@@ -1,3 +1,5 @@
+from odoo.exceptions import UserError, ValidationError
+
 from odoo import fields, models
 
 
@@ -26,4 +28,4 @@ class InvoiceFilter(models.TransientModel):
             # Return the report action for the filtered invoices
             return self.env.ref("sample_submission_app.sample_submission_report").report_action(invoices.ids)
         else:
-            return {'type': 'ir.actions.act_window_close'}
+            raise ValidationError("No Reports are found!.........")

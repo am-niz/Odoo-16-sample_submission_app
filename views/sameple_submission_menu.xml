@@ -8,8 +8,16 @@
         <menuitem
                 id="menu_sample_submission"
                 name="Sample Submission"
-                parent="sample_submission_app.sample_submission_menu_root"
+                parent="sample_submission_menu_root"
                 action="sample_submission_app.action_view_sample_submission"
                 sequence="1"/>
+
+        <!-- Sample Submission Reports -->
+        <menuitem
+                id="menu_sample_submission_report"
+                name="Reports"
+                parent="sample_submission_menu_root"
+                action="sample_submission_app.action_view_filter_inv_form"
+                sequence="2"/>
     </data>
 </odoo>

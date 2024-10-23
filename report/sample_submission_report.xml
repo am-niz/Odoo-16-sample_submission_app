@@ -1,11 +1,20 @@
 <odoo>
     <data>
         <record id="sample_submission_report" model="ir.actions.report">
-            <field name="name">Invoice</field>
+            <field name="name">Invoice Pdf</field>
             <field name="model">sample.submission</field>
             <field name="report_type">qweb-pdf</field>
             <field name="report_name">sample_submission_app.report_sample_submission</field>
             <field name="report_file">sample_submission_app.report_sample_submission</field>
+            <field name="binding_model_id" ref="model_sample_submission"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="sample_submission_report_xlsx" model="ir.actions.report">
+            <field name="name">Invoice Excel</field>
+            <field name="model">sample.submission</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">sample_submission_app.report_sample_submission_xlsx</field>
+            <field name="report_file">sample_submission_app.report_sample_submission_xlsx</field>
             <field name="binding_model_id" ref="model_sample_submission"/>
             <field name="binding_type">report</field>
         </record>
