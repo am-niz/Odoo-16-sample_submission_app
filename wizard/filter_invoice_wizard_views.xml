@@ -16,7 +16,8 @@
                         </group>
                     </sheet>
                     <footer>
-                        <button string="Filter" type="object" name="action_apply_filter" class="btn-primary"/>
+                        <button string="PDF" type="object" name="action_apply_filter_pdf" class="btn-primary"/>
+                        <button string="Excel" type="object" name="action_apply_filter_excel" class="btn-primary"/>
                         <button string="Discard" class="btn-secondary" special="cancel"/>
                     </footer>
                 </form>

@@ -15,7 +15,7 @@
         <!-- Sample Submission Reports -->
         <menuitem
                 id="menu_sample_submission_report"
-                name="Reports"
+                name="Report"
                 parent="sample_submission_menu_root"
                 action="sample_submission_app.action_view_filter_inv_form"
                 sequence="2"/>
