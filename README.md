@@ -43,7 +43,7 @@ Before installing the Sample Submission module, ensure that you have the `report
 
 ## Usage
 
-1. To explore the functionality and workflow of this module, install it and click on the module info in the Apps menu.
+1. To explore the functionality and workflow of this module with screenshots, click on the module info on the sample_submission module.
 2. Navigate to the **Sample Submission** menu in Odoo.
 3. Manage sample submission records, track materials, and generate invoices.
 4. Use the **Report** button to generate reports in PDF or Excel format.
