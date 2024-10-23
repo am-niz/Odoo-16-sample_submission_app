@@ -31,21 +31,24 @@ Before installing the Sample Submission module, ensure that you have the `report
    
 3. Restart the Odoo server to load the new module:
     ```sh
-    sudo systemctl restart odoo
+    ./odoo-bin -c conf_file_name.conf -d database_name --xmlrpc-port port_number
     ```
 
 4. Update the module list in Odoo:
     - Navigate to **Apps**.
     - Click on **Update Apps List**.
+    - To explore the functionality and workflow of this module with screenshots, click on the module info on the sample_submission module.
 
 5. Install the "Sample Submission" module from the Apps menu.
 
 ## Usage
 
-1. Navigate to the **Sample Submission** menu in Odoo.
-2. Manage sample submission records, track materials, and generate invoices.
-3. Use the **Report** button to generate reports in PDF or Excel format.
-4. View and export data for sample submissions, including totals and profit calculations.
+1. To explore the functionality and workflow of this module, install it and click on the module info in the Apps menu.
+2. Navigate to the **Sample Submission** menu in Odoo.
+3. Manage sample submission records, track materials, and generate invoices.
+4. Use the **Report** button to generate reports in PDF or Excel format.
+5. View and export data for sample submissions, including totals and profit calculations.
+   
 
 ## Screen Recording
 
