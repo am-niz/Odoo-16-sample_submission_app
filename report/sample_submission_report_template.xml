@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Template for the Sample Submission Report -->
+        <template id="report_sample_submission_template">
+            <t t-call="web.external_layout">
+                <t t-set="o" t-value="o.with_context(lang=lang)" /> 
+                <div class="mt-5">
+                    <!-- Customer Information -->
+                    <t t-if="o.customer_id">
+                        <div class="col-6" name="address_customer">
+                            <t t-set="address">
+                                <strong>Customer:</strong>
+                                <address class="mb-0" t-field="o.customer_id"
+                                         t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
+                            </t>
+                        </div>
+                    </t>
+
+                    <!-- Page Content -->
+                    <div class="page">
+                        <h2>
+                            <!-- Display Sequence Number -->
+                            <span t-if="o.sequence != '/'" t-field="o.sequence"/>
+                        </h2>
+
+                        <!-- Submission Details -->
+                        <div id="informations" class="row mt-4 mb-4">
+                            <div class="col-auto col-3 mw-100 mb-2">
+                                <strong>Submission Date:</strong>
+                                <p class="m-0" t-field="o.date_submission"/>
+                            </div>
+                            <div class="col-auto col-3 mw-100 mb-2">
+                                <strong>Sample Name:</strong>
+                                <p class="m-0" t-field="o.name"/>
+                            </div>
+                            <div class="col-auto col-3 mw-100 mb-2">
+                                <strong>Total Price:</strong>
+                                <p class="m-0">
+                                    <span t-field="o.price"/>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Payment Information -->
+                        <p t-if="o.sequence" name="payment_communication" class="mt-4">
+                            Please use the following communication for your payment:
+                            <b><span t-field="o.sequence"/></b>.
+                            <t t-if="o.date_submission">
+                                <br/>
+                                Payment is due after:
+                                <span t-field="o.date_submission" class="fw-bold"/>
+                            </t>
+                        </p>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <!-- Wrapper Template for Report -->
+        <template id="report_sample_submission">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="lang" t-value="o.customer_id.lang"/>
+                    <!-- Use the main report template -->
+                    <t t-if="o.sequence" t-call="sample_submission_app.report_sample_submission_template" t-lang="lang"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

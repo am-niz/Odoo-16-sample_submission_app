@@ -31,5 +31,7 @@
         'views/sample_submission_views.xml',
         'views/sameple_submission_menu.xml',
         'views/account_move_view.xml',
+        'report/sample_submission_report_template.xml',
+        'report/sample_submission_report.xml',
     ],
 }
