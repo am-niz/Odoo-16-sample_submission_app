@@ -54,7 +54,7 @@ Before installing the Sample Submission module, ensure that you have the `report
 
 To see a demonstration of the module in action, check out the screen recording below:
 
-[![Sample Submission Module Demo](https://img.youtube.com/vi/FOuBcOgGJ3U/0.jpg)](https://youtu.be/FOuBcOgGJ3U?si=oh6QRCjrrL_IuakB)
+[![Sample Submission Module Demo]([https://img.youtube.com/vi/FOuBcOgGJ3U/0.jpg)](https://youtu.be/FOuBcOgGJ3U?si=oh6QRCjrrL_IuakB](https://youtu.be/ibzKGJvI2Ms))
 
 ## Contributing
 
